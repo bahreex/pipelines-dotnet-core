@@ -17,8 +17,8 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 - task: PublishCodeCoverageResults@1
   inputs:
-   codeCoverageTool: "cobertura"
-   summaryFileLocation: "$(System.DefaultWorkingDirectory)/"
-   reportDirectory: "$(System.DefaultWorkingDirectory)/"
-   failIfCoverageEmpty: true
+    codeCoverageTool: 'cobertura'
+    summaryFileLocation: $(Build.SourcesDirectory)/TestResults/Coverage/**/coverage.cobertura.xml
+    reportDirectory: $(Build.SourcesDirectory)/TestResults/Coverage/Reports
+    failIfCoverageEmpty: fals
 
