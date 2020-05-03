@@ -15,3 +15,10 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: PublishCodeCoverageResults@1
+  inputs:
+   codeCoverageTool: "cobertura"
+   summaryFileLocation: "$(System.DefaultWorkingDirectory)/"
+   reportDirectory: "$(System.DefaultWorkingDirectory)/"
+   failIfCoverageEmpty: true
+
